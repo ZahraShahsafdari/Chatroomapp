@@ -1,0 +1,22 @@
+<html>
+<head><title>Chat page</title></head>
+<body>
+<h1>Users list</h1>
+<ul>
+{% for u in users %}
+<li>
+<a href="/chat/{{u.id}}">{{ u.get_full_name}}</a>
+</li>
+{% endfor %}
+</ul>
+<br/><br/>
+<h2>Messages</h2>
+<br/>
+<form action="/chat/message/new" method="POST">
+    <textarea name="test" rows="10" cols="100"></textarea>
+    <br/>
+    <input type="hidden" name="receiver" value="{{ receiver }}"/>
+    <input type="submit" value="Send message" name="submit"/>
+</form>
+</body>
+</html>
